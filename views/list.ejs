@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moviee--Get info abouts movies</title>
+    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/free/png-256/cinema-film-video-clip-movie-multimedia-short-2-18298.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/d9d97184a4.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d9d97184a4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="header"></div>
+
+    <div class="container-fluid" style="max-width: 25rem; margin-bottom: 3rem;">
+        <form action="/" method="post" class="input-group">
+            <input type="text" class="form-control rounded" placeholder="Search the movie" name="film" autofocus aria-label="Search" aria-describedby="search-addon" />
+            <button type="submit" class="btn" style="background-color: black; color: white; border-color: black;">search</button>
+        </form>  
+    </div>
+    <div class="grid-container">
+    <% if (movie_array) { %>
+        <% for(let i = 0; i < movie_array.length; i++ ){ %>
+            <div class="container-fluid">
+                <div class="card" style="max-width: 45rem; margin: 2rem auto; min-height: 18rem;">
+
+                    <% if (!movie_array[i].poster_path){ %>
+                        <img src="https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-600w-744886198.jpg" class="card-img-top mv-img" alt="..." style="padding: 1rem; max-height: 18rem;">
+                    <% } else{ %>
+                        <img src="https://image.tmdb.org/t/p/original<%= movie_array[i].poster_path %>" class="card-img-top mv-img" alt="..." style="padding: 1rem; max-height: 18rem;">
+                    <% } %>
+                    
+                    <div class="card-body">
+                    <h5 class="card-title"><%= movie_array[i].title %></h5>
+                    <p class="card-text">
+                        <b>Original Title:</b> <%= movie_array[i].original_title %> <br>
+                        <b>Date of release:</b> <%= movie_array[i].release_date %> <br>
+                        <b>TMDB Id:</b> <%= movie_array[i].id %> <br>
+                        <b>Popularity:</b> <%= movie_array[i].popularity %> <br><br>
+                        <div style="font-weight: 400;"><%= movie_array[i].overview %></div>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+    </div>
+    
+
+    <div class="container">
+        <div class="card" style="max-width: 80rem; margin: 2rem auto; border: none;">
+        
+            <div class="card-body">
+            <h5 class="card-title">About</h5>
+            <p class="card-text">The web page was created as part of a learning process, using a combination of EJS, Express.js, and a basic backend. The purpose of the page was likely to gain hands-on experience with these technologies and to build a functional web application from scratch.
+                <br>
+                As a user visiting the page, you might notice that the design and functionality are relatively simple, but still effective. The EJS templating language allows for dynamic content to be generated on the server side, which means that the page can be updated and refreshed without requiring a full reload.
+                <br>
+                The use of Express.js as the web application framework also provides a solid foundation for building more complex web applications in the future. This framework allows for easy routing, middleware, and handling of HTTP requests and responses.
+                <br>
+                Overall, while the web page may not be the most visually impressive or feature-packed site on the internet, it represents an important step in the learning process for web development. By gaining hands-on experience with EJS, Express.js, and backend development, the creator of this page has taken a crucial first step towards building more complex and sophisticated web applications in the future.
+                </p>
+            </div>
+      </div>
+    </div>
+
+    <div class="container my-5 end-foot" id="footerbox">
+        <footer class="bg-dark text-center text-white">
+            <div class="container p-4 pb-0">
+                <section class="mb-4">
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/divya-rani-95a55522b/" role="button"
+                    ><i class="fab fa-linkedin-in"></i
+                    ></a>
+            
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/divy08r" role="button"
+                    ><i class="fab fa-github"></i
+                    ></a>
+            
+                    <a class="btn btn-outline-light btn-floating m-1" href="mailto:ranidivya5408@gmail.com" role="button"
+                    ><i class="fab fa-google"></i
+                    ></a>
+            
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/divya.rani.08/" role="button"
+                    ><i class="fab fa-instagram"></i
+                    ></a>
+            
+
+                    <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"
+                    ><i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"
+                    ><i class="fab fa-twitter"></i
+                    ></a>
+                </section>
+            </div>
+    
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);"> © 2023 Copyright:
+                <a class="text-white" href="https://github.com/divy08r/Moviee">Divya Rani</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
